@@ -1,9 +1,9 @@
 {
-    "name": "complex.js",
+    "name": "complex.esm.js",
     "homepage": "https://raw.org/article/complex-numbers-in-javascript/",
     "bugs": "https://github.com/infusion/Complex.js/issues",
-    "title": "complex.js",
-    "version": "2.1.1",
+    "title": "complex.esm.js",
+    "version": "2.1.1-esm5",
     "description": "A complex numbers library",
     "keywords": [
         "complex numbers",
@@ -19,7 +19,11 @@
         "email": "robert@raw.org",
         "url": "https://raw.org/"
     },
-    "main": "complex",
+    "main": "dist/src/complex.js",
+    "module": "dist/src/complex.js",
+    "exports": {
+        ".": "./dist/src/complex.js"
+    },
     "type": "module",
     "types": "complex.d.ts",
     "private": false,
@@ -30,19 +34,21 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git://github.com/infusion/Complex.js.git"
-    },
-    "funding": {
-        "type": "patreon",
-        "url": "https://www.patreon.com/infusion"
+        "url": "git://github.com/holgerengels/Complex.js.git"
     },
     "engines": {
-        "node": "*"
+        "npm": ">=8.5.0",
+        "node": ">=16.14.2"
     },
     "scripts": {
+        "build": "tsc -w",
+        "prepublish": "tsc",
         "test": "mocha tests/*.js"
     },
     "devDependencies": {
+        "typescript": "^5.5.4",
+        "tslib": "^2.7.0",
+        "esbuild": "^0.23.1",
         "mocha": "*"
     }
 }
